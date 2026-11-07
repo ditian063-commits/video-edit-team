@@ -2,7 +2,7 @@
 
 Run a DaVinci Resolve editing workflow from a single Codex conversation. The lead agent coordinates footage analysis, story and planning, editing and color matching, audio and captions, and independent delivery review. Work can start with a media inventory and end with an edit blueprint or a verified export, depending on the tools and permissions available.
 
-The package includes the skill, five optional Codex role templates, a read-only media scanner, and an edit blueprint validator. The scanner can retain camera and color metadata with its evidence and uncertainty. The validator checks the declared color plan and delivery settings before a Resolve write.
+The package includes the skill, five optional Codex role templates, a read-only media scanner, and an edit blueprint validator. The workflow shares one scan across roles, screens the selected source windows before editing, and generates version-bound confirmation, execution, and DSH handoffs from one blueprint.
 
 ## Install in a project
 
@@ -11,6 +11,8 @@ The package includes the skill, five optional Codex role templates, a read-only 
 3. Open the project in Codex and invoke `$video-edit-team`. A GitHub skill installer can also install the `skills/video-edit-team` path into the project's skill directory.
 
 The skill and role templates work as instructions. Running the media scanner requires Python 3.10 or newer and `ffprobe` on your `PATH`, or an explicit executable path. ExifTool can supply additional camera metadata when installed. The blueprint validator requires Python and reads local inputs. Resolve timeline creation, color work, and export require a working Resolve connection and supported operations. Configure your official Resolve MCP connection separately if you want to execute the plan in Resolve. The team can prepare a blueprint without that connection.
+
+Selected-window screening uses `ffmpeg` to flag candidate black frames, near-white frames, and brightness jumps. Review those candidates and risk-prone cuts visually. The handoff generator uses Python's standard library and produces compact packets without changing the blueprint or Resolve state.
 
 DSH is optional. If you already have an authorized DSH bridge, request its participation in the current run. The lead can ask it for an independent review and merge its findings into the conversation. [DSH handoff details](skills/video-edit-team/references/dsh.md)
 

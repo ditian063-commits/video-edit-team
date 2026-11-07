@@ -48,6 +48,8 @@ Rules:
 - Declare still-image duration explicitly.
 - Record music, LUT, retime, crop, stabilization, and audio processing as
   explicit authorized operations.
+- When the plan targets Resolve, record the intended `timeline` alongside
+  `project` and keep their known identities with the versioned blueprint.
 
 ## Color plan for the single-chat editing team
 
@@ -195,6 +197,7 @@ assumed. The following is only an example:
 {
   "delivery": {
     "output_path": "/absolute/project/work/runs/example/renders/preview-v1.mp4",
+    "final_delivery_path": "/absolute/project/outputs/recap-v1.mp4",
     "container": "mp4",
     "video_codec": "h264",
     "audio_codec": "aac",
@@ -212,6 +215,10 @@ assumed. The following is only an example:
   files. A missing parent directory is allowed; validation does not create it.
   Rerenders use a new versioned path. Work renders remain under the run directory;
   only an accepted final file is copied to the user's delivery directory.
+- If delivery involves a separate destination, record it once as the optional
+  absolute `final_delivery_path`. Check that it is authorized and available
+  before publishing the accepted export. Derive the confirmation and all
+  handoffs from these fields.
 - `container`, `video_codec`, and `audio_codec` are explicit nonempty strings.
   Use `none` for an intentionally silent video. The executor must verify that
   the running Resolve version supports the selected combination; this schema
