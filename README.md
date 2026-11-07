@@ -4,6 +4,10 @@ Run a DaVinci Resolve editing workflow from a single Codex conversation. The lea
 
 The package includes the skill, five optional Codex role templates, a read-only media scanner, and an edit blueprint validator. The workflow shares one scan across roles, screens the selected source windows before editing, and generates version-bound confirmation, execution, and DSH handoffs from one blueprint.
 
+## Prerequisite
+
+The full Video Edit Team workflow requires the `davinci-autoedit-agent` skill. Before invoking `$video-edit-team`, install the upstream `skills/davinci-autoedit-agent` directory so Codex can discover it in the same project. [DaVinci AutoEdit Agent and installation instructions](https://github.com/liuluhaixiu/DaVinci-AutoEdit-Agent#installation)
+
 ## Install in a project
 
 1. Clone or download this repository. Copy the complete `skills/video-edit-team` directory into your project's `.agents/skills/` directory. The entry point should be `.agents/skills/video-edit-team/SKILL.md`.
