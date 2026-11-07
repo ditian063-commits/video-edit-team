@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Edit Team"
+  short_description: "Coordinate editing, color matching, and delivery review"
+  default_prompt: "Use $video-edit-team to review my footage, plan the edit, and verify the resulting timeline and export."
