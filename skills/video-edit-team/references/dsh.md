@@ -10,4 +10,4 @@ The lead coordinates all bridge requests. Use the plan review to check authoriza
 4. Record the task ID, input version, and expected result in the run. While the plan review runs, prepare the storyboard or perform independent preflight work. During delivery review, prepare and verify the staging copy where authorized. Check native completion and retrieve the matching result before treating the review as complete. Keep old findings attached to their original input versions.
 5. Route a request for user input or permission to the user through the bridge's supported workflow. If the bridge fails, record the failure and continue local work that can proceed independently. Report the status of the external review accurately. Visual and audio review claims require access to the corresponding output.
 
-The local five-role workflow can proceed when no DSH connection is configured.
+The local team can proceed when no DSH connection is configured.

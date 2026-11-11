@@ -2,7 +2,7 @@
 
 ## Organize a run
 
-Choose a writable project-local run folder, such as `work/runs/<run-id>/`. Keep the brief, media scan, script, blueprint, color plan, audio and caption artifacts, Resolve evidence, review, and renders together. Keep working copies and intermediate renders separate from the accepted delivery. Use a new versioned destination for rescans, revised plans, and new exports.
+Choose a writable project-local run folder, such as `work/runs/<run-id>/`. Keep the brief, media scan, creative drafts, integrated script, blueprint, color plan, audio and caption artifacts, Resolve evidence, review, and renders together. Keep working copies and intermediate renders separate from the accepted delivery. Use a new versioned destination for rescans, revised plans, and new exports.
 
 Each handoff records the run ID, input versions, output paths, and remaining unknowns. Resolve execution and QC records also identify the actual project, timeline, and export. Assign an owner to each output. The lead routes requested changes back to that owner.
 
@@ -23,6 +23,14 @@ python .agents/skills/video-edit-team/scripts/screen_selected_windows.py "./work
 ```
 
 Use camera make, model, and identifiers only when supported by media tags, verified matching sidecars, or another attributable source. Keep conflicting values with their origins. A confirmed camera model does not identify the recording mode. Keep encoded color tags separate from verified input gamut and gamma, especially after a transcode. Request only the missing facts that materially affect a planned edit or transform.
+
+## Draft copy and the editing script
+
+Give `video_copywriter` the brief and any reviewed footage or evidence. It can use any relevant installed skill, plugin capability, or tool available to its session within the task's authorization. The lead owns delegation and DSH review, and `video_resolve` owns all Resolve state changes.
+
+Save the requested drafts under `copy/vNNN/` as `video-copy.md` and `editing-script.md`, as applicable. The copy may include titles, hooks, narration, and on-screen text. Record the scene or beat, target time or duration, available source reference, image and sound cues, and cut intent in the editing script. Ground factual claims and media choices in available evidence. Mark proposed shots, unconfirmed details, and missing assets for follow-up.
+
+For a standalone creative request, the lead can return the requested drafts from the brief. For a full edit, hand the draft paths, version, evidence, and open decisions to `video_story` before it integrates the script and builds the blueprint. The story role checks proposed timing and source ranges against the actual footage.
 
 ## Prepare and validate the blueprint
 

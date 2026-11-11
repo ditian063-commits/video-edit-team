@@ -1,6 +1,6 @@
 ---
 name: video-edit-team
-description: Coordinate a five-role video editing team from one conversation, including media and camera analysis, story and shot planning, DaVinci Resolve editing and cross-camera color matching, audio and captions, and independent delivery review. Use for video editing plans or end-to-end editing tasks involving user-provided media.
+description: Coordinate a six-role video editing team from one conversation, including media and camera analysis, video copy and editing scripts, story and shot planning, DaVinci Resolve editing and cross-camera color matching, audio and captions, and independent delivery review. Use for standalone video copy or editing scripts, video editing plans, or end-to-end editing tasks involving user-provided media.
 ---
 
 # Video Edit Team
@@ -12,12 +12,15 @@ Act as the lead and return a single user-facing result. Use [the workflow refere
 | Role | Responsibility |
 | --- | --- |
 | `video_footage` | Media inventory, usable ranges, camera evidence, input color evidence |
-| `video_story` | Script, pacing, source-backed shot choices, integrated blueprint |
+| `video_copywriter` | Video copy, narration, on-screen text, and editing script drafts. Call with `@文案` or `@剪辑脚本` |
+| `video_story` | Integrated script, pacing, source-backed shot choices, and edit blueprint. Call with `@脚本` or `@分镜` |
 | `video_resolve` | Color plan, Resolve writes, timeline and export evidence |
 | `video_audio_captions` | Dialogue, sound, caption timing, and assigned audio assets |
 | `video_qc` | Independent timeline and rendered output verification |
 
 Dispatch only roles needed by the current request. Parallelize independent work and keep up to three specialists active at once. A specialist returns results to the lead. The lead handles any further dispatch. Use the named role when the runtime supports it. Otherwise use its bundled template under `assets/agent-roles/` as a task brief, or perform the roles in sequence if subagents are unavailable. Give each role its inputs, version, output path, authorized operations, and acceptance criteria.
+
+For standalone copy or editing script requests, dispatch `video_copywriter` from the creative brief and any available media evidence. The role can directly use any installed skill, plugin capability, or tool exposed to its session, within the task's authorization and host access. In a full edit, pass its drafts to `video_story` for integration before the combined confirmation.
 
 ## Run the edit
 
